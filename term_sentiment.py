@@ -24,7 +24,7 @@ def main():
 			#so far the logic has been the same as Problem 2. Here's where it starts being problem 3-specific:
 			#Instead of calculating the score of a tweet, I want to calculate the number of positive words vs 
                         #the number of negative words in the tweet. Then I'll use the ratio between these two to decide 
-                        #on the sentiment score of any word that is present in this tweet but not in AFIN-111.			
+                        #on the sentiment score of any word that is present in this tweet but not in AFINN-111.			
 			if words in scores.keys():
 				if scores[words] > 0 :
 					no_of_positive = no_of_positive + 1

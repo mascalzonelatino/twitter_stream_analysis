@@ -43,13 +43,15 @@ The steps below will help you set up your twitter account to be able to access t
 
     This command pipes the output to a file. Stop the program with Ctrl-C when you have obtained enough data (tip: wait at least **3 minutes** for data to accumulate). 
 
+The file test/output.txt provided in this repository can be used to test the scripts without requiring new data to be obtained.
+
 ### Derive the sentiment of each tweet
 
 The sentiment of a tweet is equivalent to the sum of the sentiment scores for each term in the tweet.
 
-The script `tweet_sentiment.py` accepts two arguments on the command line: a _sentiment file_ and a tweet file like the one you generated in the above section. You can run it like this:
+The script `tweet_sentiment.py` accepts two arguments on the command line: a _sentiment file_ and a tweet file like the one you generated in the previous section. For example:
 
-<pre>$ python tweet_sentiment.py AFINN-111.txt output.txt</pre>
+<pre>$ python tweet_sentiment.py AFINN-111.txt test/output.txt</pre>
 
 The file AFINN-111.txt contains a list of pre-computed sentiment scores. Each line in the file contains a word or phrase followed by a sentiment score. Each word or phrase that is found in a tweet but not found in AFINN-111.txt should be given a sentiment score of 0\. See the file AFINN-README.txt for more information.
 
@@ -59,7 +61,7 @@ The script provides a score for **every** tweet in the sample file, even if that
 
 The script `term_sentiment.py` accepts two arguments on the command line: a _sentiment file_ and a tweet file like the one you generated in the above section and computes the sentiment for the terms that **do not** appear in the file AFINN-111.txt:
 
-<pre>$ python term_sentiment.py AFINN-111.txt output.txt</pre>
+<pre>$ python term_sentiment.py AFINN-111.txt test/output.txt</pre>
 
 The strategy used to compute the sentiment of new terms is rather simple: we calculate the number of positive words and the number of negative words in each tweet. Then we use the ratio between positive words and negative words to assign a sentiment score to any word that is present in a tweet but not in our the dictionary file. 
 

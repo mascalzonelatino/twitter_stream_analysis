@@ -67,15 +67,15 @@ The strategy used to compute the sentiment of new terms is rather simple: we cal
 
 The script `frequency.py` computes the _term frequency histogram_ from the input livestream data file.
 
-The frequency of a term can be calculated as `[# of occurrences of the term in all tweets]/[# of occurrences of all terms in all tweets]`
+The frequency of a term can be calculated as `[# of occurrences of the term in all tweets]/[# of occurrences of all terms in all tweets]`. For example: 
 
-<pre>$ python frequency.py <tweet_file></pre>
+<pre>$ python frequency.py test/output.txt </pre>
 
 ### Which State is happiest?
 
-The script `happiest_state.py` returns the name of the happiest state:
+The script `happiest_state.py` returns the name of the happiest state. It accepts two arguments: a sentiment file and a livestream data file. For example:
 
-<pre>$ python happiest_state.py <sentiment_file> <tweet_file></pre>
+<pre>$ python happiest_state.py AFINN-111.txt test/output.txt </pre>
 
 There are different ways you might assign a location to a tweet. Here are three:
 
@@ -87,8 +87,7 @@ Any tweets for which a location in the United States cannot be assigned is ignor
 
 ### Top ten hash tags
 
-The script `top_ten.py` computes the ten most frequently occurring hashtags from a livestream data file:
+The script `top_ten.py` computes the ten most frequently occurring hashtags from a livestream data file. To see it in action, run it against the test data provided in this repository: 
 
-<pre>$ python top_ten.py <tweet_file></pre>
-
+<pre>$ python top_ten.py test/output.txt</pre>
 
